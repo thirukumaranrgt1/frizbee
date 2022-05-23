@@ -1,0 +1,33 @@
+
+<div *ngFor="let product of productList" class="products">
+
+        
+    <mat-card class="example-card">
+        <mat-card-header>
+
+        <mat-card-title style="font-size:15px;">{{product.name}}</mat-card-title>
+        <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content style="height:150x;">
+            <div class="center-img">
+                <div>
+                <img  style="width:200px; height:127px;" [src]="product.src">
+                
+                </div>
+
+            </div>
+    
+        
+        </mat-card-content>
+        <mat-card-actions style="display: flex;justify-content: space-evenly;">
+
+            <button mat-stroked-button (click)="navigateToProductDetail(product)" color="primary" style="background-color: #ffff3f;font-weight: 600;">
+                View
+            </button>
+
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+

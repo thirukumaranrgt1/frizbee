@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: cornflowerblue;
+}
+
+* {
+    margin: 0;
+    // padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+app-root,app-home{
+    height:inherit;
+}
+
+app-products{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+app-product-detail{
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px;
+    width: inherit;
+    height: 200px;
+}
+
+app-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}

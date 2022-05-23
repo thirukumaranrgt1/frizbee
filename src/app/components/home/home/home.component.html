@@ -1,0 +1,32 @@
+<div class="home">
+
+    <p>
+        <mat-toolbar color="primary" style="display: flex;justify-content: space-between;">
+          <div>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+
+            <mat-icon >menu</mat-icon>
+          </button>
+          <span>Frizbee</span>
+          <span class="example-spacer"></span>
+          <button *ngIf="currenturl == ('/cart' || '/productDetail')" mat-raised-button matBadgeColor="primary" >
+            <mat-icon >home</mat-icon>
+         </button>
+        </div>
+        <div>
+          <button mat-raised-button matBadgeColor="primary" [matBadge]="totalProductsInCart" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
+           <mat-icon *ngIf="!hidden">add_shopping_cart</mat-icon>
+           <mat-icon *ngIf="hidden">home</mat-icon>
+        </button>
+        <button mat-raised-button style="margin: 0px 10px;" (click)="signOut()">
+          Sign Out
+       </button>
+        </div>
+        </mat-toolbar>
+      </p>
+ 
+      <router-outlet ></router-outlet>
+          
+   
+</div>
+

@@ -1,0 +1,32 @@
+
+<mat-card class="example-card" >
+    <mat-card-header>
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content >
+      <img mat-card-image [src]="product.src" alt="Photo unavailable"> 
+    </mat-card-content>
+    <mat-card-actions style="height: auto; padding: 0px; display: flex;margin: 0px;align-items: baseline;flex-direction: column;">
+      <div style="margin: 10px 0px;">
+        <p> Price: {{product.price |currency:"INR":"symbol"}}</p>
+        <p> Stock Available: {{productQuantity}}</p>
+        <p >Net Price for this item: {{product.price * quantityRequired |currency:"INR":"symbol" }}</p> 
+      </div>
+      <div style="margin: 10px 0px;" >
+      <button mat-raised-button color="primary" (click)="updateQuantity('remove')" [disabled]="disableRemove">-</button>
+      <button mat-stroked-button disabled>{{quantityRequired}}</button>
+      <button mat-raised-button color="primary" (click)="updateQuantity('add')" [disabled]="disableAdd">+</button>
+    </div>
+      <div style="height: 40px;padding: 0px;margin: 0px;">
+        <button mat-stroked-button (click)="openSnackBar()" [disabled]="disableAddCart"  color="primary" [ngStyle]="{'background-color': disableAddCart ? 'lightgray' : '#ffff3f'}"style="font-weight: 600;">
+          {{ disableAddCart ? 'Added' : 'Add' }} to Cart
+        </button>
+        <button mat-stroked-button (click)="navigateToCart()"  color="primary" style="background-color:#ffff3f;font-weight: 600;">
+          Goto Cart
+        </button>
+      </div>
+    </mat-card-actions>
+ 
+  </mat-card>

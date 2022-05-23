@@ -1,0 +1,58 @@
+
+<div *ngIf="productsInCart.length <=0">
+    <mat-card class="top-card" >
+        <mat-card-header>
+        <mat-card-title>No Items added in the cart</mat-card-title>
+        <mat-card-subtitle>Feel free to purchase</mat-card-subtitle>
+        </mat-card-header>
+    
+    
+    </mat-card>
+</div>
+
+<div *ngIf="productsInCart.length >0">
+    <mat-card class="top-card" >
+        <mat-card-header>
+        <mat-card-title>Grand Total</mat-card-title>
+        <mat-card-subtitle style="color:white;">{{grandTotal |currency:"INR":"symbol"}}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-actions style="height: auto; padding: 0px; display: flex;margin: 0px;align-items: baseline;flex-direction: column;">
+
+    
+
+        </mat-card-actions>
+    
+    </mat-card>
+    <div *ngFor="let product of productsInCart">
+        
+    <mat-card class="example-card" >
+        <mat-card-header>
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content >
+        <img mat-card-image [src]="product.src" alt="Photo unavailable"> 
+        </mat-card-content>
+        <mat-card-actions style="height: auto; padding: 0px; display: flex;margin: 0px;align-items: baseline;flex-direction: column;">
+        <div style="margin: 10px 0px;">
+            <p> Price: {{product.price |currency:"INR":"symbol"}}</p>
+            <p> Stock Available: {{product.inStock}}</p>
+            <p >Net Price for this item: {{product.price * product.quantityRequired |currency:"INR":"symbol" }}</p>
+            <p >Quantity Ordered: {{product.quantityRequired }}</p>  
+        </div>
+
+        <div style="height: 40px;padding: 0px;margin: 0px;">
+            <button mat-stroked-button (click)="navigateToProductDetail(product)"   color="primary"  style="background-color:'#ffff3f';font-weight: 600;">
+                Click to Edit
+            </button>
+            <button mat-stroked-button (click)="navigateToHome()"   color="primary"  style="background-color:'#ffff3f';font-weight: 600;">
+                Back to Home
+            </button>
+        </div>
+        </mat-card-actions>
+    
+    </mat-card>
+    </div>
+</div>
