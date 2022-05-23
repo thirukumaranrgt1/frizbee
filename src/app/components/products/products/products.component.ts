@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductService } from 'src/app/services/product/product.service';
+import { ProductService } from '../../../services/product/product.service';
 
 @Component({
   selector: 'app-products',
